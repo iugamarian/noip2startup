@@ -1,0 +1,13 @@
+[Unit]
+Description=noip2 updater to noip.com for ddns
+Documentation=https://www.noip.com/download
+ConditionPathExists=/usr/local/bin/noip2
+
+[Service]
+Type=forking
+# Need to start after internet connection established
+ExecStartPre=/bin/sleep 20
+ExecStart=/usr/local/bin/noip2
+
+[Install]
+WantedBy=multi-user.target
