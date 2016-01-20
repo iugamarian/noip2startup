@@ -1,0 +1,16 @@
+#!/bin/bash
+# After installing the program, this is just for startup
+# Install with:
+cp noip2.service /etc/systemd/system/
+# Executable by user:
+chmod 700 /etc/systemd/system/noip2.service
+# Systemd sees it without restart:
+systemctl daemon-reload
+sleep 2
+# Systemd starts it at boot:
+systemctl enable noip2.service
+# Systemd starts it now:
+systemctl start noip2.service
+echo ""
+echo "Wait a few seconds."
+echo ""
